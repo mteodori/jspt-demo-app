@@ -1,0 +1,6 @@
+{
+    "ids": false,
+    "adjoining-classes": false,
+    "box-model": false,
+    "regex-selectors":false
+}

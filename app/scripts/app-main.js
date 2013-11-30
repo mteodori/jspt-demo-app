@@ -7,17 +7,17 @@ require(['require', 'main'], function (require) {
         'collections/tweet',
         'views/TweetCollectionView'
     ], function (Backbone, TweetCollection, TweetCollectionView) {
-        //window.alert('RequireJS Main Application Started');
         var tweetCollection = new TweetCollection();
         var tweetCollectionView = new TweetCollectionView({
             el: $('.container'),
             model: tweetCollection
         });
 
-//        setInterval(function() {
-            tweetCollection.fetch();
-//       }, 5000);
-
-//        Backbone.history.start();
+        var poller = function() {
+            tweetCollection.fetch().done(function() {
+                setTimeout(poller, 5000);
+            });
+        };
+        poller();
     });
 });

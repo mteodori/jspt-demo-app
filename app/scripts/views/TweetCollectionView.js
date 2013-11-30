@@ -4,7 +4,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/tweet'
+    'views/tweet',
+    'freewall'
 ], function ($, _, Backbone, TweetView) {
     'use strict';
 
@@ -12,6 +13,7 @@ define([
 
         initialize : function (options) {
             this.listenTo(this.model, "sync", this.render);
+            this.wall = new freewall(this.el);
         },
 
         renderItem: function(item) {
@@ -24,6 +26,7 @@ define([
             this.model.each(function(item) {
                 this.renderItem(item);
             }, this);
+            this.wall.fitWidth();
             return this;
         }
 

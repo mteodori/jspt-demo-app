@@ -1,4 +1,4 @@
-/*global describe, it */
+/*global define, describe, it */
 'use strict';
 
 define([

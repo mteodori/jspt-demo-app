@@ -6,22 +6,22 @@ define([
     'backbone',
     'views/tweet',
     'freewall'
-], function ($, _, Backbone, TweetView) {
+], function ($, _, Backbone, TweetView, Freewall) {
     'use strict';
 
     var TweetCollectionView = Backbone.View.extend({
 
-        initialize : function (options) {
+        initialize : function () {
             this.listenTo(this.model, "sync", this.render);
-            this.wall = new freewall(this.el);
+            this.wall = new Freewall(this.el);
         },
 
-        renderItem: function(item) {
+        renderItem: function (item) {
             var itemView = new TweetView({model: item});
             this.$el.append(itemView.render().el);
         },
 
-        render: function() {
+        render: function () {
             this.$el.empty();
             this.model.each(function(item) {
                 this.renderItem(item);

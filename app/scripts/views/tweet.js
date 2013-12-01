@@ -25,7 +25,8 @@ define([
                 "rgb(39, 174, 96)"
             ];
 
-            $(this.$el.children()[0]).css('background-color', colour[colour.length * Math.random() << 0]);
+            var idx = Math.round(colour.length * Math.random());
+            $(this.$el.children()[0]).css('background-color', colour[idx]);
 
             return this;
         }

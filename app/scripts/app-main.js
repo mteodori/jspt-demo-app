@@ -8,7 +8,7 @@ require(['require', 'main'], function (require) {
         'views/TweetCollectionView'
     ], function (Backbone, TweetCollection, TweetCollectionView) {
         var tweetCollection = new TweetCollection();
-        var tweetCollectionView = new TweetCollectionView({
+        new TweetCollectionView({
             el: $('.container'),
             model: tweetCollection
         });
